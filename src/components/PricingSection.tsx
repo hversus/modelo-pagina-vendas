@@ -2,7 +2,6 @@ import { Check, ArrowRight, Shield } from "lucide-react";
 import paymentIcons from "@/assets/payment-icons.webp";
 import clockIcon from "@/assets/clock-alarm.svg";
 import ImagePlaceholder from "./ImagePlaceholder";
-import bannerAindaDaTempo from "@/assets/banner-ainda-da-tempo.webp.asset.json";
 import iconWhatsapp from "@/assets/icon-whatsapp.png.asset.json";
 import iconGmail from "@/assets/icon-gmail.png.asset.json";
 
@@ -185,12 +184,19 @@ const PricingSection = () => {
             </a>
 
             <div className="flex justify-center mt-[16px]">
-              <img
-                src={bannerAindaDaTempo.url}
-                alt="Ainda dá tempo de levar a melhor opção"
-                className="w-full max-w-[380px] h-auto object-contain"
-                loading="lazy"
-              />
+              <div
+                className="w-full max-w-[380px] rounded-md px-4 py-3 text-center uppercase"
+                style={{
+                  backgroundColor: "hsl(var(--lp-danger))",
+                  color: "hsl(var(--lp-white))",
+                  fontFamily: FONT,
+                  fontWeight: 800,
+                  fontSize: "clamp(12px, 2.7vw, 15px)",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                Ainda dá tempo de levar a melhor opção!
+              </div>
             </div>
 
           </div>
