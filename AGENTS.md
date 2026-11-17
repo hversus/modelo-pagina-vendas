@@ -1,0 +1,1 @@
+- Use the shared ImagePlaceholder component for product-image slots so replacements remain consistently labeled and dimensionally stable across the sales page.

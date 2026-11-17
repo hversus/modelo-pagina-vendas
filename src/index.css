@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 12%;
+
+    --primary: 330 85% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 60% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 330 15% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 35 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 330 85% 55%;
+
+    --radius: 0.75rem;
+
+    /* Carnaval theme tokens */
+    --carnaval-pink: 330 85% 55%;
+    --carnaval-pink-dark: 330 80% 45%;
+    --carnaval-magenta: 315 75% 50%;
+    --carnaval-purple: 280 60% 45%;
+    --carnaval-orange: 25 95% 55%;
+    --carnaval-yellow: 45 95% 55%;
+    --carnaval-cyan: 180 70% 50%;
+    
+    /* Hero dark theme */
+    --hero-bg: 280 50% 8%;
+    --hero-text: 0 0% 100%;
+    
+    /* Section backgrounds */
+    --section-light: 330 30% 97%;
+    --hero-muted: 0 0% 80%;
+    --highlight: 330 85% 55%;
+    
+    /* CTA button */
+    --cta-gradient-start: 330 85% 55%;
+    --cta-gradient-end: 315 75% 50%;
+
+    /* Landing page - Bridal Florist Theme (diagramação bloco a bloco)
+       TRAVADOS: --lp-danger (barra de urgência) e --lp-lime (CTA verde). */
+
+    /* CTA verde (mantido - travado) */
+    --lp-lime: 84 78% 52%;
+    --lp-lime-shadow: 88 55% 28%;
+
+    /* Neutros */
+    --lp-black: 148 40% 12%;              /* Verde profundo (texto sobre claro) */
+    --lp-white: 40 40% 98%;               /* Marfim quase branco */
+    --lp-light: 0 0% 100%;                /* Branco puro (pricing bg) */
+    --lp-accordion: 40 30% 97%;
+
+    /* Paleta florista */
+    --lp-green-soft: 214 52% 30%;         /* Azul navy da Hero (Plano Completo) */
+    --lp-green-pale: 214 52% 30%;         /* Azul navy da Hero (blocos de fundo) */
+    --lp-green-deep: 148 45% 16%;         /* Verde profundo (títulos, textos escuros) */
+    --lp-sage: 214 52% 30%;               /* Azul navy da Hero (compat) */
+    --lp-nude: 26 58% 86%;                /* Cor de pele (Plano Básico) */
+    --lp-nude-accent: 22 55% 45%;         /* Cor de pele mais escura (checks Hero) */
+    --lp-ink: 0 0% 10%;                   /* Preto quase puro — destaque sobre verde sage */
+    --lp-blue: 208 62% 42%;               /* Azul garantia */
+    --lp-red-soft: 4 65% 60%;             /* Vermelho urgência interna (mais fraco) */
+    --lp-title-accent: 148 40% 12%;       /* Verde escuro profundo - destaque em títulos Hero (mesmo do IdealForYou) */
+
+    /* Compat com tokens antigos - agora apontam para novos valores */
+    --lp-dark: 148 45% 16%;               /* Igual a --lp-green-deep (textos escuros) */
+    --lp-card-dark: 140 24% 40%;          /* Verde sage escurecido (cards escuros) */
+    --lp-card-black: 0 0% 0%;             /* Preto puro (footer) */
+    --lp-banner: 345 45% 26%;
+    --lp-muted: 148 12% 35%;
+    --lp-subtle: 40 15% 65%;
+    --lp-accent: 340 45% 45%;             /* Bordô/rosé para acentos */
+    --lp-accent-light: 340 30% 95%;
+
+    /* Sinalizadores */
+    --lp-danger: 0 85% 55%;               /* TRAVADO - barra de urgência topo */
+    --lp-check: 140 42% 34%;              /* Verde sage escuro (checks) */
+  }
+}
+
+@layer components {
+  .gradient-hero {
+    background: hsl(var(--hero-bg));
+  }
+  
+  .gradient-cta {
+    background: linear-gradient(135deg, hsl(var(--cta-gradient-start)) 0%, hsl(var(--cta-gradient-end)) 100%);
+    border: 2px solid hsl(330 85% 65%);
+    box-shadow: 0 0 30px hsl(330 85% 55% / 0.5);
+  }
+  
+  .gradient-cta:hover {
+    box-shadow: 0 0 40px hsl(330 85% 55% / 0.7);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 4px 20px -4px hsl(0 0% 0% / 0.08);
+  }
+  
+  .shadow-card-hover {
+    box-shadow: 0 8px 30px -4px hsl(0 0% 0% / 0.12);
+  }
+  
+  /* Carrossel infinito (marquee) sem "reset" visual */
+  .marquee {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .marquee__inner {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .marquee__group {
+    display: flex;
+    gap: 1rem; /* equivalente ao gap-4 */
+    padding-right: 1rem;
+  }
+
+  /* Importante: não usar content-visibility em itens animados (causa "sumir/voltar") */
+  .marquee img {
+    content-visibility: visible;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--carnaval-pink)) 0%, hsl(var(--carnaval-yellow)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-highlight {
+    color: hsl(var(--highlight));
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 20px hsl(330 85% 55% / 0.5), 0 0 40px hsl(330 85% 55% / 0.3);
+  }
+  
+  .banner-urgent {
+    background: linear-gradient(90deg, hsl(var(--carnaval-pink)) 0%, hsl(var(--carnaval-magenta)) 50%, hsl(var(--carnaval-pink)) 100%);
+    color: hsl(0 0% 100%);
+  }
+  
+  /* Performance optimizations */
+  .content-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 500px;
+  }
+  
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 20px;
+  }
+
+  @media (min-width: 768px) {
+    html {
+      font-size: 22px;
+    }
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+}
